@@ -1,9 +1,10 @@
 // Sidebar.tsx (Server Component)
+import { auth } from "@/auth";
 import SidebarClient from "./SidebarClient";
-import { getAuthSession } from "@/auth";
 
 export default async function Sidebar() {
-  const session = await getAuthSession(); // ✅ server-side session
+  const session = await auth(); // ✅ server-side session
+
   return <SidebarClient session={session} />;
 }
 
